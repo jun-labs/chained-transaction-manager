@@ -1,0 +1,26 @@
+spring:
+  jpa:
+    hibernate:dialect: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        envers:
+          audit_table_suffix: user
+        default_batch_fetch_size: 1000
+        show_sql: true
+        format_sql: true
+    open-in-view: false
+    show-sql: true
+
+  datasource:
+    source:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:mem:source;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_LOWER=TRUE;
+      username: sa
+      password:
+    target:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:mem:target;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_LOWER=TRUE;
+      username: sa
+      password:
