@@ -18,7 +18,19 @@ public class UserFacade {
         value = CHAINED_TRANSACTION_MANAGER,
         rollbackFor = Exception.class
     )
-    public void saveUsers(
+    public void saveUsersWithChainedTransactionManager(
+        User source,
+        User target
+    ) {
+        userWriteUseCase.saveSource(source);
+        userWriteUseCase.saveTarget(target);
+    }
+
+    @Transactional(
+        value = CHAINED_TRANSACTION_MANAGER,
+        rollbackFor = Exception.class
+    )
+    public void saveUsersWithChainedTransactionManagerFailure(
         User source,
         User target
     ) {
@@ -30,7 +42,7 @@ public class UserFacade {
         value = REVERSE_CHAINED_TRANSACTION_MANAGER,
         rollbackFor = Exception.class
     )
-    public void saveUsersWithInvalidChainedTransactionManager(
+    public void saveUsersWithReverseChainedTransactionManager(
         User source,
         User target
     ) {
