@@ -26,8 +26,8 @@ import static project.io.app.common.configuration.database.Constant.TARGET_TRANS
 @Configuration
 @EnableJpaRepositories(
     basePackages = "project.io.app.core",
-    entityManagerFactoryRef = "targetEntityManagerFactory",
-    transactionManagerRef = "targetTransactionManager"
+    entityManagerFactoryRef = TARGET_ENTITY_MANAGER_FACTORY,
+    transactionManagerRef = TARGET_TRANSACTION_MANAGER
 )
 public class TargetDatabaseConfiguration {
 
